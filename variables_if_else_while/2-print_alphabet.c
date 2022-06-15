@@ -8,13 +8,12 @@ int main(void)
 
 {
 int alphabet = 96;
-int newl = 3;
+
 while (alphabet < 122)
 {
 ((alphabet++));
 putchar(alphabet);
-putchar(newl);
 }
-
+putchar('\n');
 return (0);
 }
