@@ -8,7 +8,7 @@ int main(void)
 
 {
 int alphabet = 96;
-int newl = 13;
+int newl = 3;
 while (alphabet < 122)
 {
 ((alphabet++));
