@@ -1,18 +1,17 @@
 #include "main.h"
 /**
- * main - print the alphabet using  _putchar
+ * print_alphabet - print the alphabet using  _putchar
  * Return: 0
  */
 
-int main(void)
+void print_alphabet(void)
 {
-	int print_alphabet = 97;
+	int alp = 97;
 
-	while (print_alphabet < 123)
+	while (alp < 123)
 		{
-		_putchar(print_alphabet);
-		print_alphabet++;
+		_putchar(alp);
+		alp++;
 		}
 	_putchar('\n');
-	return (0);
 }
