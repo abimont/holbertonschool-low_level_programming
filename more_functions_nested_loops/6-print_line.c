@@ -9,17 +9,11 @@
 void print_line(int n)
 {
 	int us = 95;
+	int t;
 
-	while (us)
+	for (t = 1; t <= n; t++)
 	{
-		if (us > n)
-		{
-			_putchar(us);
-			us++;
-		}
-		else
-		{
-			_putchar('\n');
-		}
+		_putchar(us);
 	}
+	_putchar('\n');
 }
