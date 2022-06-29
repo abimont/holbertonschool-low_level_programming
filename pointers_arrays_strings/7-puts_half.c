@@ -28,7 +28,6 @@ void puts_half(char *str)
 	int len = _strlen(str);
 	int half = len / 2;
 	int middle = len % 2;
-	/*int odd = (len - 1) / 2;*/
 
 	while (str[half] != '\0')
 	{
@@ -41,7 +40,7 @@ void puts_half(char *str)
 
 		if (middle != 0)
 		{
-			half = half - 1;
+			half = (half - 1) / 2;
 
 			half++;
 			_putchar(str[half]);
