@@ -30,7 +30,7 @@ void puts_half(char *str)
 	int middle = len % 2;
 	int odd = (len - 1) / 2;
 
-	while (str[half] != '\0')
+	while (str[half] != '\0' && str[odd] != '\0')
 	{
 
 		if (middle == 0)
