@@ -42,8 +42,8 @@ void puts_half(char *str)
 		{
 			half = (len - 1) / 2;
 
-			half++;
 			_putchar(str[half]);
+			half++;
 		}
 
 	}
