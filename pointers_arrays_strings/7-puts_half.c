@@ -27,22 +27,29 @@ void puts_half(char *str)
 {
 	int len = _strlen(str);
 	int half = len / 2;
-	int middle = len % 2;
-	int odd = (len - 1) / 2;
+	/*
+	*int middle = len % 2;
+	*int odd = len - 1 / 2;
+	*/
 
-	while (str[half] != '\0' && str[odd] != '\0')
+	while (str[half] != '\0')
+	/*
+	*&& str[odd] != '\0'
+	*/
 	{
-		if (middle != 0)
-		{
-			_putchar(str[odd]);
-			odd++;
-		}
+		/*
+		*if (middle != 0)
+		*{
+		*	_putchar(str[odd]);
+		*	odd++;
+		*}
+		*
+		*if (middle == 0)
+		*{
+		*/
+		_putchar(str[half]);
+		half++;
 
-		if (middle == 0)
-		{
-			_putchar(str[half]);
-			half++;
-		}
 	}
 	_putchar('\n');
 
