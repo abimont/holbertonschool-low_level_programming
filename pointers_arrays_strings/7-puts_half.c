@@ -28,22 +28,21 @@ void puts_half(char *str)
 	int len = _strlen(str);
 	int half = len / 2;
 	int middle = len % 2;
+	int odd = (len - 1) / 2;
 
 	while (str[half] != '\0')
 	{
 
 		if (middle == 0)
 		{
-		_putchar(str[half]);
-		half++;
+			_putchar(str[half]);
+			half++;
 		}
 
 		if (middle != 0)
 		{
-			half = (len - 1) / 2;
-
-			_putchar(str[half]);
-			half++;
+			_putchar(str[odd]);
+			odd++;
 		}
 
 	}
