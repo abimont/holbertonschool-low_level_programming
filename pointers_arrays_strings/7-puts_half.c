@@ -26,17 +26,17 @@ int _strlen(char *str)
 void puts_half(char *str)
 {
 	int len = _strlen(str);
-	int half = len / 2;
 	int middle = len % 2;
-	int odd = (len - 1) / 2;
+	int even = len / 2;
+	int odd = even + 1;
 
-	while (str[half] != '\0' && str[odd] != '\0')
+	while (str[even] != '\0' && str[odd] != '\0')
 	{
 
 		if (middle == 0)
 		{
-			_putchar(str[half]);
-			half++;
+			_putchar(str[even]);
+			even++;
 		}
 
 		if (middle != 0)
