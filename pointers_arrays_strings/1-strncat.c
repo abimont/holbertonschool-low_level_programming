@@ -3,7 +3,7 @@
 /**
  * *_strncat - concatenates two strings
  * @dest: target variable
- * @src: origin variable 
+ * @src: origin variable
  * @n: number of characters to copy
  * Return: dest
  */
