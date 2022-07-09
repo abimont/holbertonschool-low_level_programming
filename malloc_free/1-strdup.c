@@ -19,7 +19,7 @@ char *_strdup(char *str)
 	while (str[len] != '\0')
 		len++;
 
-	strcpy = malloc(sizeof(char) * len);
+	strcpy = malloc((sizeof(char) * len) + 1);
 
 	if (!strcpy)
 		return (NULL);
