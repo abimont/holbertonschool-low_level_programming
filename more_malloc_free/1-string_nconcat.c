@@ -30,24 +30,31 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	unsigned int i = 0, j = 0;
 	unsigned int len1 = _strlen(s1), len2 = _strlen(s2), n2 = n;
 
+	if (s1 == NULL)
+		s1 = "";
+	if (s2 == NULL)
+		s2 = "";
+
 	if (n2 >= len2)
 		n2 = len2;
 
-	str_concat = malloc(sizeof(char) * (len1 + n2));
+	str_concat = malloc(sizeof(char) * (len1 + n2 + 1));
 	if (!str_concat)
 		return (NULL);
 
-	while (i != len1 + n2)
+	while (s1[i] != '\0')
 	{
-		if (i < len1)
-			str_concat[i] = s1[i];
-		else
-		{
-			str_concat[i] = s2[j];
-			j++;
-		}
+		str_concat[i] = s1[i];
 		i++;
 	}
+
+	while (s2[j])
+	{
+		str_concat[i] = s2[j];
+		i++;
+		j++;
+	}
+
 	str_concat[len1 + n2] = '\0';
 	return (str_concat);
 }
