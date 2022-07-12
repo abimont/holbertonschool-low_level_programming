@@ -20,7 +20,7 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 	if (mem_array == NULL)
 		return (NULL);
 
-	for (i = 0; i < nmemb; i++)
+	for (i = 0; i < nmemb * size; i++)
 		mem_array[i] = 0;
 
 	return (mem_array);
