@@ -17,28 +17,29 @@ int **alloc_grid(int width, int height)
 	if (width <= 0 || height <= 0)
 		return (NULL);
 
-	tdarray = malloc(sizeof(int *) * height);
+	tdarray = (int **) malloc(sizeof(int *) * height);
 	if (!tdarray)
 		return (NULL);
 
 	while (i < height)
 	{
-		tdarray[i] = malloc(sizeof(int) * width);
+		tdarray[i] = (int *) malloc(sizeof(int) * width);
 		if (!tdarray[i])
 		{
-			for (j = i; j > 0; j--)
+			for (j = i; j >= 0; j--)
+			{
 				free(tdarray[j]);
-
+			}
 			free(tdarray);
 			return (NULL);
 		}
 		i++;
 	}
-
+		
 	for (j = 0; j < height; j++)
 	{
 		for (i = 0; i < width; i++)
-			tdarray[j][i] = 0;
+		tdarray[j][i] = 0;
 	}
 
 	return (tdarray);
