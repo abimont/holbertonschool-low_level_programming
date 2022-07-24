@@ -2,22 +2,6 @@
 #include "main.h"
 
 /**
- * _strlen - returns the length of a string
- * @s: pointer
- * Return: s
- */
-
-int _strlen(char *s)
-{
-	int len = 0;
-
-	while (s[len] != '\0')
-		len++;
-
-	return (len);
-}
-
-/**
  * *string_nconcat - concatenates two strings
  * @s1: string 1
  * @s2: string 2
@@ -26,42 +10,38 @@ int _strlen(char *s)
  */
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	char *str_concat = NULL;
-	unsigned int i, j;
-	unsigned int len1, len2, n2;
+	char *str_concat;
+	unsigned int i, len;
 
 	if (s1 == NULL)
 		s1 = "";
 	if (s2 == NULL)
 		s2 = "";
 
-	len1 = _strlen(s1);
-	len2 = _strlen(s2);
-	n2 = n;
+	len = n;
+	for (i  = 0; s1[i]; i++)
+		len++;
 
-	if (n2 >= len2)
-		n2 = len2;
-
-	str_concat = malloc(sizeof(char) * (len1 + n2 + 1));
+	str_concat = malloc(sizeof(char) * (len + 1));
 	if (!str_concat)
 		return (NULL);
 
+	len = 0;
 	i = 0;
-	j = 0;
 
-	while (s1[i] != '\0')
+	while (s1[i])
 	{
-		str_concat[i] = s1[i];
+		str_concat[len++] = s1[i];
 		i++;
 	}
 
-	while (s2[j])
+	i = 0;
+	while (s2[i] && i < n)
 	{
-		str_concat[i] = s2[j];
+		str_concat[len++] = s2[i];
 		i++;
-		j++;
 	}
 
-	str_concat[len1 + n2] = '\0';
+	str_concat[len] = '\0';
 	return (str_concat);
 }
