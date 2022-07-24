@@ -12,8 +12,8 @@ int check_prime(int number, int div);
 int is_prime_number(int n)
 {
 	int div;
-	div = 2;
 
+	div = 2;
 	return (check_prime(div, n));
 }
 
