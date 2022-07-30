@@ -23,7 +23,7 @@ listint_t *get_nodeint_at_index(listint_t *head, unsigned int index)
 		iterator++;
 	}
 
-	if (index > iterator)
+	if (index > iterator || head == NULL)
 		return (NULL);
 
 	return (tmp);
