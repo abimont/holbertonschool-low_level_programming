@@ -42,7 +42,7 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 		tmpindex = tmpindex->next;
 		guide++;
 	}
-	if (tmpindex->next == NULL && guide < idx)
+	if (tmpindex == NULL && guide < idx)
 		return (NULL);
 	newnode->next = tmpindex;
 	previousindx->next = newnode;
