@@ -20,31 +20,17 @@ int main(int argc, char *argv[])
 		exit(97);
 	}
 	file_from = open(argv[1], O_RDONLY);
-	if (file_from == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
-		exit(98);
-	}
 	file_to = open(argv[2], O_CREAT | O_TRUNC | O_WRONLY, 0664);
-	if (file_to == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
-		exit(98);
-	}
+	open_err(file_from, file_to, argv);
+
 	while (rd == 1024)
 	{
 		rd = read(file_from, buffer, 1024);
 		if (rd == -1)
-		{
-			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
-			exit(98);
-		}
+			open_err(-1, 0, argv);
 		wr = write(file_to, buffer, rd);
 		if (wr == -1)
-		{
-			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
-			exit(99);
-		}
+			open_err(0, -1, argv);
 	}
 	closing(file_from, file_to);
 	return (0);
@@ -77,3 +63,25 @@ void closing(int file_from, int file_to)
 
 }
 
+/**
+ * open_err - checks for error in open process
+ * @file_from: first file
+ * @file_to: second file
+ * @argv: argument vector
+ *
+ * Return: void
+ */
+
+void open_err(int file_from, int file_to, char *argv[])
+{
+	if (file_from == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+		exit(98);
+	}
+	if (file_to == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
+		exit(99);
+	}
+}
