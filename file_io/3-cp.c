@@ -58,7 +58,7 @@ int main(int argc, char *argv[])
  * Return: 0
  */
 
-int closing(int file_from, int file_to)
+void closing(int file_from, int file_to)
 {
 	int close_from, close_to;
 
@@ -75,5 +75,5 @@ int closing(int file_from, int file_to)
 		exit(100);
 	}
 
-	return (0);
 }
+
