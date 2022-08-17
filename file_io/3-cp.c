@@ -1,7 +1,5 @@
 #include "main.h"
 
-int closing(int file_from, int file_to);
-
 /**
  * main - copies the content of a file to another file
  * @argc: argument count
@@ -12,7 +10,8 @@ int closing(int file_from, int file_to);
 
 int main(int argc, char *argv[])
 {
-	int file_from, file_to, wr, rd = 1024;
+	int file_from, file_to, wr;
+	ssize_t rd = 1024;
 	char *buffer[1024];
 
 	if (argc != 3)
