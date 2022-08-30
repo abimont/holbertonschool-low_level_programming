@@ -19,13 +19,13 @@ hash_table_t *hash_table_create(unsigned long int size)
 		return (NULL);
 
 	hash_t->size = size;
-	
+
 	hash_n = malloc(sizeof(hash_node_t *) * size);
 	if (hash_n == NULL)
 		return (NULL);
 
 	hash_t->array = hash_n;
-	
+
 	for (index = 0; index < size; index++)
 		hash_t->array[index] = NULL;
 
