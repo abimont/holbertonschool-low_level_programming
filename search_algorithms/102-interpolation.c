@@ -6,43 +6,43 @@
  * @size: number of elements in array
  * @value: value to search for
  *
- * Return: first index where value is located
+ * Return: first index where value is lcated
  */
 
 int interpolation_search(int *array, size_t size, int value)
 {
-	size_t index;
-	size_t min, max;
+	size_t ind;
+	size_t l, h;
 
 	if (array == NULL)
 		return (-1);
 
-	min = 0;
-	max = size - 1;
+	l = 0;
+	h = size - 1;
 
-	while (min <= max)
+	while (l <= h)
 	{
-		index = min + (((double)(max - min) / (array[max] - array[min])) * (value - array[min]));
+		ind = l + (((double)(h - l) / (array[h] - array[l])) * (value - array[l]));
 
-		if (index > size - 1)
+		if (ind > size - 1)
 		{
-			printf("Value checked array[%ld] is out of range\n", index);
+			printf("Value checked array[%ld] is out of range\n", ind);
 			return (-1);
 		}
 
-		printf("Value checked array[%ld] = [%d]\n", index, array[index]);
+		printf("Value checked array[%ld] = [%d]\n", ind, array[ind]);
 
-		if (array[max] - array[min] == 0)
+		if (array[h] - array[l] == 0)
 			return (-1);
 
-		if (array[index] < value)
-			min = index + 1;
+		if (array[ind] < value)
+			l = ind + 1;
 
-		else if (array[index] > value)
-			max = index - 1;
+		else if (array[ind] > value)
+			h = ind - 1;
 
 		else
-			return (index);
+			return (ind);
 	}
 	return (-1);
 }
